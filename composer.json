@@ -19,7 +19,9 @@
         "henrik/contracts": "dev-main",
         "henrik/dependency-injector": "dev-master",
         "henrik/view": "dev-main",
-        "henrik/http": "dev-master"
+        "henrik/http": "dev-master",
+        "henrik/core": "dev-main",
+        "henrik/session": "dev-master"
     },
     "require-dev": {
         "phpmd/phpmd": "^2.15",
