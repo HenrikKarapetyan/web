@@ -1,9 +1,11 @@
 <?php
 
+use Henrik\Contracts\CoreEvents;
 use Henrik\Contracts\Enums\ServiceScope;
 use Henrik\Contracts\Http\RequestInterface;
-use Henrik\Contracts\Utils\MarkersInterface;
 
+use Henrik\Contracts\Utils\MarkersInterface;
+use Henrik\Events\EventDispatcher;
 use Henrik\Http\Request;
 use Henrik\View\Extension\AssetExtension;
 use Henrik\View\Renderer;
@@ -28,6 +30,10 @@ return [
         [
             'id'    => MatchedRouteSubscriber::class,
             'class' => MatchedRouteSubscriber::class,
+        ],
+        [
+            'id'    => CoreEvents::ROUTE_DISPATCHER_DEFAULT_DEFINITION_ID,
+            'class' => EventDispatcher::class,
         ],
     ],
 
