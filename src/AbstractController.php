@@ -1,0 +1,48 @@
+<?php
+
+namespace src;
+
+use Henrik\Contracts\DependencyInjectorInterface;
+use Henrik\Http\Response;
+use Henrik\View\Extension\AssetExtension;
+use Henrik\View\Renderer;
+
+abstract class AbstractController
+{
+    public function __construct(
+        private readonly Renderer $renderer,
+        protected readonly DependencyInjectorInterface $dependencyInjector,
+        private readonly AssetExtension $assetExtension
+    ) {}
+
+    /**
+     * @param string               $template
+     * @param array<string, mixed> $params
+     *
+     * @return Response
+     */
+    public function asView(string $template, array $params = []): Response
+    {
+        $this->renderer->addExtension($this->assetExtension);
+
+        return (new Response())->withAddedHeaders([
+            'Content-Type' => 'text/html',
+        ])
+            ->withContent((string) $this->renderer->render($template, $params));
+    }
+
+    /**
+     * @param mixed $data
+     * @param int   $statusCode
+     *
+     * @return Response
+     */
+    public function asJson(mixed $data, int $statusCode = 200): Response
+    {
+        return (new Response())->withAddedHeaders([
+            'Content-Type' => 'application/json',
+        ])
+            ->withStatusCode($statusCode)
+            ->withContent((string) json_encode($data));
+    }
+}

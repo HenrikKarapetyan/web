@@ -1,0 +1,47 @@
+{
+    "name": "henrik/web",
+    "description": "Web lib",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hk\\Web\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Henrik Karapetyan",
+            "email": "henrikkarapetyan@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "henrik/contracts": "dev-main",
+        "henrik/dependency-injector": "dev-master",
+        "henrik/view": "dev-main",
+        "henrik/http": "dev-master"
+    },
+    "require-dev": {
+        "phpmd/phpmd": "^2.15",
+        "friendsofphp/php-cs-fixer": "dev-master",
+        "phpstan/phpstan": "2.0.x-dev"
+    },
+    "scripts": {
+        "phpstan": [
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/phpstan --memory-limit=-1"
+        ],
+        "fix": [
+            "Composer\\Config::disableProcessTimeout",
+            "PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix src --diff -vvv --config=.php-cs-fixer.dist.php"
+        ],
+        "phpmd-ci": [
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/phpmd src gitlab ./phpmd.xml > phpmd-report.json"
+        ],
+        "phpmd-html": [
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/phpmd src html ./phpmd.xml > phpmd-report.html"
+        ]
+    }
+}
