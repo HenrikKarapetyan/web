@@ -7,6 +7,7 @@ use Henrik\Contracts\Utils\MarkersInterface;
 use Henrik\Http\Request;
 use Henrik\View\Extension\AssetExtension;
 use Henrik\View\Renderer;
+use Henrik\Web\Subscribers\MatchedRouteSubscriber;
 
 return [
     ServiceScope::SINGLETON->value => [
@@ -24,7 +25,10 @@ return [
                 'viewDirectory' => MarkersInterface::AS_SERVICE_PARAM_MARKER . 'viewDirectory',
             ],
         ],
-
+        [
+            'id'    => MatchedRouteSubscriber::class,
+            'class' => MatchedRouteSubscriber::class,
+        ],
     ],
 
     ServiceScope::PARAM->value => [
