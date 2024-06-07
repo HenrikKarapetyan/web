@@ -5,9 +5,9 @@ namespace Henrik\Web;
 use Henrik\Contracts\ComponentInterfaces\DependsOnAwareInterface;
 use Henrik\Contracts\ComponentInterfaces\EventSubscriberAwareInterface;
 use Henrik\Contracts\EventDispatcherInterface;
+use Henrik\Core\CoreComponent;
 use Henrik\Route\RouteComponent;
 use Henrik\Web\Subscribers\MatchedRouteSubscriber;
-use Hk\Core\CoreComponent;
 
 class WebComponent extends CoreComponent implements EventSubscriberAwareInterface, DependsOnAwareInterface
 {
