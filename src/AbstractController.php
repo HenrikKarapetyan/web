@@ -1,6 +1,6 @@
 <?php
 
-namespace src;
+namespace Henrik\Web;
 
 use Henrik\Contracts\DependencyInjectorInterface;
 use Henrik\Http\Response;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hk\Web\Core\Subscribers;
+namespace Henrik\Web\Subscribers;
 
 use Henrik\Contracts\CoreEvents;
 use Henrik\Contracts\DependencyInjectorInterface;

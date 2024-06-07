@@ -1,14 +1,14 @@
 <?php
 
-namespace src;
+namespace Henrik\Web;
 
 use Henrik\Contracts\BaseComponent;
 use Henrik\Contracts\ComponentInterfaces\DependsOnAwareInterface;
 use Henrik\Contracts\ComponentInterfaces\EventSubscriberAwareInterface;
 use Henrik\Contracts\EventDispatcherInterface;
 use Henrik\Route\RouteComponent;
+use Henrik\Web\Subscribers\MatchedRouteSubscriber;
 use Hk\Core\CoreComponent;
-use Hk\Web\Core\Subscribers\MatchedRouteSubscriber;
 
 class WebComponent extends BaseComponent implements EventSubscriberAwareInterface, DependsOnAwareInterface
 {
@@ -26,7 +26,7 @@ class WebComponent extends BaseComponent implements EventSubscriberAwareInterfac
     {
         return [
             CoreComponent::class,
-            RouteComponent::class
+            RouteComponent::class,
         ];
     }
 }
