@@ -2,6 +2,7 @@
 
 namespace Henrik\Web;
 
+use Henrik\Contracts\BaseComponent;
 use Henrik\Contracts\ComponentInterfaces\DependsOnAwareInterface;
 use Henrik\Contracts\ComponentInterfaces\EventSubscriberAwareInterface;
 use Henrik\Contracts\ComponentInterfaces\OnBootstrapAwareInterface;
@@ -13,7 +14,7 @@ use Henrik\Route\RouteComponent;
 use Henrik\Web\Subscribers\MatchedRouteSubscriber;
 use Henrik\Web\Subscribers\RequestHandlerSubscriber;
 
-class WebComponent extends CoreComponent implements EventSubscriberAwareInterface, DependsOnAwareInterface, OnBootstrapAwareInterface
+class WebComponent extends BaseComponent implements EventSubscriberAwareInterface, DependsOnAwareInterface, OnBootstrapAwareInterface
 {
     /**
      * {@inheritDoc}
