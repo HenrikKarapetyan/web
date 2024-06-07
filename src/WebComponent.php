@@ -28,6 +28,11 @@ class WebComponent extends BaseComponent implements EventSubscriberAwareInterfac
         ];
     }
 
+    public function getServices(): array
+    {
+        return require 'config/services.php';
+    }
+
     /**
      * {@inheritDoc}
      */
