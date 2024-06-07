@@ -21,7 +21,8 @@
         "henrik/view": "dev-main",
         "henrik/http": "dev-master",
         "henrik/core": "dev-main",
-        "henrik/session": "dev-master"
+        "henrik/session": "dev-master",
+        "henrik/route": "dev-master"
     },
     "require-dev": {
         "phpmd/phpmd": "^2.15",

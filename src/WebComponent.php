@@ -6,7 +6,7 @@ use Henrik\Contracts\BaseComponent;
 use Henrik\Contracts\ComponentInterfaces\DependsOnAwareInterface;
 use Henrik\Contracts\ComponentInterfaces\EventSubscriberAwareInterface;
 use Henrik\Contracts\EventDispatcherInterface;
-use Henrik\Session\SessionComponent;
+use Henrik\Route\RouteComponent;
 use Hk\Core\CoreComponent;
 use Hk\Web\Core\Subscribers\MatchedRouteSubscriber;
 
@@ -26,7 +26,7 @@ class WebComponent extends BaseComponent implements EventSubscriberAwareInterfac
     {
         return [
             CoreComponent::class,
-            SessionComponent::class
+            RouteComponent::class
         ];
     }
 }
