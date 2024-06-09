@@ -6,18 +6,21 @@ use Henrik\Contracts\DependencyInjectorInterface;
 use Henrik\Http\Response;
 use Henrik\View\Extension\AssetExtension;
 use Henrik\View\Renderer;
+use Throwable;
 
-abstract class AbstractController
+abstract readonly class AbstractController
 {
     public function __construct(
-        private readonly Renderer $renderer,
-        protected readonly DependencyInjectorInterface $dependencyInjector,
-        private readonly AssetExtension $assetExtension
+        private Renderer $renderer,
+        protected DependencyInjectorInterface $dependencyInjector,
+        private AssetExtension $assetExtension
     ) {}
 
     /**
      * @param string               $template
      * @param array<string, mixed> $params
+     *
+     * @throws Throwable
      *
      * @return Response
      */
