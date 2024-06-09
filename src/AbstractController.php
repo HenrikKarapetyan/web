@@ -8,12 +8,12 @@ use Henrik\View\Extension\AssetExtension;
 use Henrik\View\Renderer;
 use Throwable;
 
-abstract readonly class AbstractController
+abstract class AbstractController
 {
     public function __construct(
-        private Renderer $renderer,
-        protected DependencyInjectorInterface $dependencyInjector,
-        private AssetExtension $assetExtension
+        private readonly Renderer $renderer,
+        protected readonly DependencyInjectorInterface $dependencyInjector,
+        private readonly AssetExtension $assetExtension
     ) {}
 
     /**
