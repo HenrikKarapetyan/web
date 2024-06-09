@@ -5,7 +5,7 @@ namespace Henrik\Web;
 use Henrik\Contracts\BaseComponent;
 use Henrik\Contracts\ComponentInterfaces\DependsOnAwareInterface;
 use Henrik\Contracts\ComponentInterfaces\EventSubscriberAwareInterface;
-use Henrik\Contracts\ComponentInterfaces\OnWebBootstrapAwareInterface;
+use Henrik\Contracts\ComponentInterfaces\OnBootstrapAwareInterface;
 use Henrik\Contracts\CoreEvents;
 use Henrik\Contracts\Enums\ServiceScope;
 use Henrik\Contracts\EventDispatcherInterface;
@@ -20,7 +20,7 @@ use Henrik\View\Renderer;
 use Henrik\Web\Subscribers\MatchedRouteSubscriber;
 use Henrik\Web\Subscribers\RequestHandlerSubscriber;
 
-class WebComponent extends BaseComponent implements EventSubscriberAwareInterface, DependsOnAwareInterface, OnWebBootstrapAwareInterface
+class WebComponent extends BaseComponent implements EventSubscriberAwareInterface, DependsOnAwareInterface, OnBootstrapAwareInterface
 {
     /**
      * {@inheritDoc}
@@ -70,7 +70,7 @@ class WebComponent extends BaseComponent implements EventSubscriberAwareInterfac
     /**
      * {@inheritDoc}
      */
-    public function onWebBootstrapDispatchEvents(): array
+    public function onBootstrapDispatchEvents(): array
     {
         return [
             CoreEvents::ROUTE_DISPATCHER_DEFAULT_DEFINITION_ID => [
@@ -79,6 +79,9 @@ class WebComponent extends BaseComponent implements EventSubscriberAwareInterfac
         ];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function dependsOn(): array
     {
         return [
